@@ -1,0 +1,13 @@
+.idea/
+.gitignore
+target/
+*.iml
+*.log
+*.zip
+*.tar.gz
+*.rar
+classes/
+package.json
+package-lock.json
+node_modules/
+*.class
