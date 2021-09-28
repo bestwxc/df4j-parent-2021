@@ -47,6 +47,8 @@
         <maven-scm-plugin.version>1.12.0</maven-scm-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
+        <maven-plugin-plugin.version>3.6.1</maven-plugin-plugin.version>
+        <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
 
         <maven.compiler.source>UTF-8</maven.compiler.source>
         <maven.compiler.target>UTF-8</maven.compiler.target>
@@ -59,6 +61,7 @@
         <!--自定义打包配置-->
         <spring-boot.mainClass>com.df4j.xcwork.Application</spring-boot.mainClass>
         <assembly.config.file>package.xml</assembly.config.file>
+        <git.properties.filepath>${project.artifactId}-git.properties</git.properties.filepath>
 
         <spring-cloud.version>2020.0.4</spring-cloud.version>
 
@@ -173,7 +176,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-plugin-plugin</artifactId>
-                    <version>${maven-plugin-plugin}</version>
+                    <version>${maven-plugin-plugin.version}</version>
                 </plugin>
                 <!--编译插件-->
                 <plugin>
@@ -291,6 +294,25 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>${git-commit-id-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>revision</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+                        <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                        <generateGitPropertiesFilename>${project.build.outputDirectory}/${git.properties.filepath}</generateGitPropertiesFilename>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
