@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>df4j-xcweb</artifactId>
+    <name>df4j-xcweb</name>
+    <description>df4j-xcweb</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

@@ -45,6 +45,7 @@
     <properties>
         <!-- maven plugin -->
         <maven-scm-plugin.version>1.12.0</maven-scm-plugin.version>
+        <maven-release-plugin.version>3.0.0-M4</maven-release-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
         <maven-plugin-plugin.version>3.6.1</maven-plugin-plugin.version>
@@ -164,6 +165,20 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
                     <version>${maven-scm-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
+                    <configuration>
+                        <tagNameFormat>V${project.version}</tagNameFormat>
+                        <!--因为是聚合工程，设置这个参数免去为每个子模块设置版本号的动作，统一使用聚合模块的版本号-->
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <!--禁用超级pom中的profile文件-->
+                        <useReleaseProfile>false</useReleaseProfile>
+                        <!--使用自定的profile文件-->
+                        <releaseProfiles>deploy,dev</releaseProfiles>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -373,6 +388,10 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
