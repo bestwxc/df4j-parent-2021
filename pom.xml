@@ -49,12 +49,12 @@
         <maven-plugin-plugin.version>3.6.1</maven-plugin-plugin.version>
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
 
-        <maven.compiler.source>UTF-8</maven.compiler.source>
-        <maven.compiler.target>UTF-8</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 
-        <maven.javadoc.encoding>8</maven.javadoc.encoding>
-        <maven.javadoc.charset>8</maven.javadoc.charset>
+        <maven.javadoc.encoding>UTF-8</maven.javadoc.encoding>
+        <maven.javadoc.charset>UTF-8</maven.javadoc.charset>
         <maven.javadoc.docencoding>UTF-8</maven.javadoc.docencoding>
 
         <!--自定义打包配置-->
