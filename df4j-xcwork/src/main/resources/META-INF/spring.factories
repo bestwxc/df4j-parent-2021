@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.df4j.xcwork.autoconfigure.jdbc.DataSourceAutoConfiguration,\
+  com.df4j.xcwork.autoconfigure.message.MessageAutoConfiguration,\
+  com.df4j.xcwork.autoconfigure.websocket.WebSocketAutoConfiguration
